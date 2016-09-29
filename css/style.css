@@ -143,6 +143,9 @@ body {
   color: #999;
   -webkit-overflow-scrolling: touch;
 }
+p:hover {
+  color: #f8f8ff;
+}
 ::selection {
   color: #fff;
   background: #4094c7;
