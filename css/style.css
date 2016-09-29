@@ -2601,6 +2601,7 @@ color
   border-radius: 6px;
   -webkit-box-shadow: 4px 4px 18px rgba(0,0,0,0.46);
   box-shadow: 4px 4px 18px rgba(0,0,0,0.46);
+  background: #414141;
 }
 .article-header {
   border-left: rgba(63,63,63,0) 5px solid;
