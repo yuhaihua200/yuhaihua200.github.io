@@ -21,8 +21,6 @@
     <link rel="icon" href="/img/favicon.png">
   
   
-  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
-  
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -39,7 +37,7 @@
   <script>
       var yiliaConfig = {
           fancybox: true,
-          animate: true,
+          animate: false,
           isHome: true,
           isPost: false,
           isArchive: false,
@@ -54,15 +52,15 @@
     <div class="left-col">
     <div class="overlay"></div>
 <div class="intrude-less">
-    <header id="header" class="inner" title="点击我回到首页">
+    <header id="header" class="inner">
         <a href="/" class="profilepic">
             
-            <img lazy-src="/img/head2.jpg" class="js-avatar">
+            <img src="/img/head2.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
             
         </a>
 
         <hgroup>
-          <h1 class="header-author"><a href="/" title="点击我回到首页">弌弌幺幺</a></h1>
+          <h1 class="header-author"><a href="https://github.com/yuhaihua200"  target="_blank" title="我的github">弌弌幺幺</a></h1>
         </hgroup>
 
         
@@ -74,8 +72,10 @@
                 <div class="icon">
                     <div class="icon-ctn">
                         <div class="icon-wrap icon-house" data-idx="0">
+                        <a href="/">
                             <div class="birdhouse"></div>
                             <div class="birdhouse_holes"></div>
+                        </a>
                         </div>
                         <div class="icon-wrap icon-ribbon hide" data-idx="1">
                             <div class="ribbon"></div>
@@ -165,7 +165,7 @@
         <header id="header" class="inner">
             <a href="/" class="profilepic">
                 
-                    <img lazy-src="/img/head2.jpg" class="js-avatar">
+                    <img src="/img/head2.jpg" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
                 
             </a>
             <hgroup>
@@ -204,105 +204,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-hexo1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/notes/hexo1/" class="article-date">
-      <time datetime="2016-09-30T07:32:07.000Z" itemprop="datePublished">2016-09-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/notes/hexo1/">hexo1</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>#hexo学习记录</p>
-<p>##安装git</p>
-<p>##配置git</p>
-<p>##安装npm</p>
-<p>##安装hexo</p>
-<ul>
-<li>npm install -g hexo</li>
-<li>hexo init</li>
-<li>hexo generate（hexo g也可以）</li>
-<li><p>hexo server（hexo s也可以）</p>
-<ul>
-<li>默认端口4000,可能被福昕占用</li>
-<li>换用端口5000: <blockquote>
-<p>hexo s -p 5000  </p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>更换皮肤themes</p>
-</li>
-<li>配置github<blockquote>
-<p>type: git<br>repo: <a href="https://github.com/yuhaihua200/yuhaihua200.github.io.git" target="_blank" rel="external">https://github.com/yuhaihua200/yuhaihua200.github.io.git</a></p>
-</blockquote>
-</li>
-</ul>
-<p>##常用命令</p>
-<ul>
-<li>hexo clean #清除缓存文件夹public</li>
-<li>npm install hexo-deployer-git –save #安装node_modules</li>
-<li>hexo new”postName”(简写 hexo n) #新建文章</li>
-<li>hexo new page”pageName” #新建页面</li>
-</ul>
-<p>###跳过的坑</p>
-<ol>
-<li>不能上传github</li>
-</ol>
-<p>##部署到github</p>
-<p>##错误总结<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line">ERROR Deployer not found: git 或者 ERROR Deployer not found: github</div><div class="line"></div><div class="line">解决方法： npm install hexo-deployer-git --save</div><div class="line"></div><div class="line">如发生报错： ERROR Process failed: layout/.DS_Store?, 那么进入主题里面layout和_partial目录下，使用删除命令：</div><div class="line"></div><div class="line">rm-rf.DS_Store</div><div class="line"></div><div class="line">ERROR Plugin load failed: hexo-server</div><div class="line"></div><div class="line">原因：</div><div class="line"></div><div class="line">Besides,utilities are separated into a standalone module.hexo.util is not reachable anymore.</div><div class="line"></div><div class="line">解决方法，执行命令：</div><div class="line"></div><div class="line">sudo npm install hexo-server</div><div class="line"></div><div class="line">执行命令hexo server，提示：Usage: hexo ....</div><div class="line"></div><div class="line">原因：</div><div class="line"></div><div class="line">我认为是没有生成本地服务</div><div class="line"></div><div class="line">解决方法，执行命令：</div><div class="line"></div><div class="line">npm install hexo-server --save</div><div class="line"></div><div class="line">提示：hexo-server@0.1.2 node_modules/hexo-server</div><div class="line"></div><div class="line">....</div><div class="line"></div><div class="line">表示成功了参考</div><div class="line"></div><div class="line">这个时候再执行：</div><div class="line"></div><div class="line">hexo-server</div><div class="line"></div><div class="line">得到:</div><div class="line"></div><div class="line">INFOHexois running at http://0.0.0.0:4000/.PressCtrl+C to stop.</div><div class="line"></div><div class="line">这个时候再点击http://0.0.0.0:4000，正常情况下应该是最原始的画面，但是我看到的是：</div><div class="line"></div><div class="line">白板和Cannot GET / 几个字</div><div class="line"></div><div class="line">原因：</div><div class="line"></div><div class="line">由于2.6以后就更新了，我们需要手动配置些东西，我们需要输入下面三行命令：</div><div class="line"></div><div class="line">npm install hexo-renderer-ejs --save</div><div class="line"></div><div class="line">npm install hexo-renderer-stylus --save</div><div class="line"></div><div class="line">npm install hexo-renderer-marked --save</div><div class="line"></div><div class="line">这个时候再重新生成静态文件，命令：</div><div class="line"></div><div class="line">hexo generate（或hexo g）</div><div class="line"></div><div class="line">启动本地服务器：</div><div class="line"></div><div class="line">hexo server（或hexo s）</div></pre></td></tr></table></figure></p>
-<p>##根目录配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div></pre></td><td class="code"><pre><div class="line"># Hexo Configuration</div><div class="line">## Docs: https://hexo.io/docs/configuration.html</div><div class="line">## Source: https://github.com/hexojs/hexo/</div><div class="line"></div><div class="line"># Site</div><div class="line">title: YHH~Blog</div><div class="line">subtitle: 学习记录</div><div class="line">description: recording my study.</div><div class="line">author: yuhaihua200</div><div class="line">language: zh-CN</div><div class="line">timezone: Asia/shanghai</div><div class="line"></div><div class="line"># URL</div><div class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</div><div class="line">url: http://yoursite.com</div><div class="line">root: /</div><div class="line">permalink: :year/:month/:day/:title/</div><div class="line">permalink_defaults:</div><div class="line"></div><div class="line"># Directory</div><div class="line">source_dir: source</div><div class="line">public_dir: public</div><div class="line">tag_dir: tags</div><div class="line">archive_dir: archives</div><div class="line">category_dir: categories</div><div class="line">code_dir: downloads/code</div><div class="line">i18n_dir: :lang</div><div class="line">skip_render:</div><div class="line"></div><div class="line"># Writing</div><div class="line">new_post_name: :title.md # File name of new posts</div><div class="line">default_layout: post</div><div class="line">titlecase: false # Transform title into titlecase</div><div class="line">external_link: true # Open external links in new tab</div><div class="line">filename_case: 0</div><div class="line">render_drafts: false</div><div class="line">post_asset_folder: false</div><div class="line">relative_link: false</div><div class="line">future: true</div><div class="line">highlight:</div><div class="line">  enable: true</div><div class="line">  line_number: true</div><div class="line">  auto_detect: false</div><div class="line">  tab_replace:</div><div class="line"></div><div class="line"># Category &amp; Tag</div><div class="line">default_category: uncategorized</div><div class="line">category_map:</div><div class="line">tag_map:</div><div class="line"></div><div class="line"># Date / Time format</div><div class="line">## Hexo uses Moment.js to parse and display date</div><div class="line">## You can customize the date format as defined in</div><div class="line">## http://momentjs.com/docs/#/displaying/format/</div><div class="line">date_format: YYYY-MM-DD</div><div class="line">time_format: HH:mm:ss</div><div class="line"></div><div class="line"># Pagination</div><div class="line">## Set per_page to 0 to disable pagination</div><div class="line">per_page: 10</div><div class="line">pagination_dir: page</div><div class="line"></div><div class="line"># Extensions</div><div class="line">## Plugins: https://hexo.io/plugins/</div><div class="line">## Themes: https://hexo.io/themes/</div><div class="line">theme: spfk</div><div class="line"></div><div class="line"># Deployment</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: https://github.com/yuhaihua200/yuhaihua200.github.io.git</div></pre></td></tr></table></figure></p>
-<p>##局部页面逻辑<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── languages  #多语言</div><div class="line">|   ├── default.yml#默认语言</div><div class="line">|   └── zh-CN.yml  #中文语言</div><div class="line">├── layout #布局，根目录下的*.ejs文件是对主页，分页，存档等的控制</div><div class="line">|   ├── _partial   #局部的布局，此目录下的*.ejs是对头尾等局部的控制</div><div class="line">|   └── _widget#小挂件的布局，页面下方小挂件的控制</div><div class="line">├── source #源码</div><div class="line">|   ├── css#css源码 </div><div class="line">|   |   ├── _base  #*.styl基础css</div><div class="line">|   |   ├── _partial   #*.styl局部css</div><div class="line">|   |   ├── fonts  #字体</div><div class="line">|   |   ├── images #图片</div><div class="line">|   |   └── style.styl #*.styl引入需要的css源码</div><div class="line">|   ├── fancybox   #fancybox效果源码</div><div class="line">|   └── js #javascript源代码</div><div class="line">├── _config.yml#主题配置文件</div><div class="line">└── README.md  #用GitHub的都知道</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/notes/">notes</a>
-    </div>
-
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-<!--
-
--->
-
-
-  
     <article id="post-hexo" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -320,7 +221,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/notes/hexo/">hexo1</a>
+      <a class="article-title" href="/notes/hexo/">hexo</a>
     </h1>
   
 
@@ -330,47 +231,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>#hexo学习记录</p>
-<p>##安装git</p>
-<p>##配置git</p>
-<p>##安装npm</p>
-<p>##安装hexo</p>
-<ul>
-<li>npm install -g hexo</li>
-<li>hexo init</li>
-<li>hexo generate（hexo g也可以）</li>
-<li><p>hexo server（hexo s也可以）</p>
-<ul>
-<li>默认端口4000,可能被福昕占用</li>
-<li>换用端口5000: <blockquote>
-<p>hexo s -p 5000  </p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>更换皮肤themes</p>
-</li>
-<li>配置github<blockquote>
-<p>type: git<br>repo: <a href="https://github.com/yuhaihua200/yuhaihua200.github.io.git" target="_blank" rel="external">https://github.com/yuhaihua200/yuhaihua200.github.io.git</a></p>
-</blockquote>
-</li>
-</ul>
-<p>##常用命令</p>
-<ul>
-<li>hexo clean #清除缓存文件夹public</li>
-<li>npm install hexo-deployer-git –save #安装node_modules</li>
-<li>hexo new”postName”(简写 hexo n) #新建文章</li>
-<li>hexo new page”pageName” #新建页面</li>
-</ul>
-<p>###跳过的坑</p>
-<ol>
-<li>不能上传github</li>
-</ol>
-<p>##部署到github</p>
-<p>##错误总结<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line">ERROR Deployer not found: git 或者 ERROR Deployer not found: github</div><div class="line"></div><div class="line">解决方法： npm install hexo-deployer-git --save</div><div class="line"></div><div class="line">如发生报错： ERROR Process failed: layout/.DS_Store?, 那么进入主题里面layout和_partial目录下，使用删除命令：</div><div class="line"></div><div class="line">rm-rf.DS_Store</div><div class="line"></div><div class="line">ERROR Plugin load failed: hexo-server</div><div class="line"></div><div class="line">原因：</div><div class="line"></div><div class="line">Besides,utilities are separated into a standalone module.hexo.util is not reachable anymore.</div><div class="line"></div><div class="line">解决方法，执行命令：</div><div class="line"></div><div class="line">sudo npm install hexo-server</div><div class="line"></div><div class="line">执行命令hexo server，提示：Usage: hexo ....</div><div class="line"></div><div class="line">原因：</div><div class="line"></div><div class="line">我认为是没有生成本地服务</div><div class="line"></div><div class="line">解决方法，执行命令：</div><div class="line"></div><div class="line">npm install hexo-server --save</div><div class="line"></div><div class="line">提示：hexo-server@0.1.2 node_modules/hexo-server</div><div class="line"></div><div class="line">....</div><div class="line"></div><div class="line">表示成功了参考</div><div class="line"></div><div class="line">这个时候再执行：</div><div class="line"></div><div class="line">hexo-server</div><div class="line"></div><div class="line">得到:</div><div class="line"></div><div class="line">INFOHexois running at http://0.0.0.0:4000/.PressCtrl+C to stop.</div><div class="line"></div><div class="line">这个时候再点击http://0.0.0.0:4000，正常情况下应该是最原始的画面，但是我看到的是：</div><div class="line"></div><div class="line">白板和Cannot GET / 几个字</div><div class="line"></div><div class="line">原因：</div><div class="line"></div><div class="line">由于2.6以后就更新了，我们需要手动配置些东西，我们需要输入下面三行命令：</div><div class="line"></div><div class="line">npm install hexo-renderer-ejs --save</div><div class="line"></div><div class="line">npm install hexo-renderer-stylus --save</div><div class="line"></div><div class="line">npm install hexo-renderer-marked --save</div><div class="line"></div><div class="line">这个时候再重新生成静态文件，命令：</div><div class="line"></div><div class="line">hexo generate（或hexo g）</div><div class="line"></div><div class="line">启动本地服务器：</div><div class="line"></div><div class="line">hexo server（或hexo s）</div></pre></td></tr></table></figure></p>
-<p>##根目录配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div></pre></td><td class="code"><pre><div class="line"># Hexo Configuration</div><div class="line">## Docs: https://hexo.io/docs/configuration.html</div><div class="line">## Source: https://github.com/hexojs/hexo/</div><div class="line"></div><div class="line"># Site</div><div class="line">title: YHH~Blog</div><div class="line">subtitle: 学习记录</div><div class="line">description: recording my study.</div><div class="line">author: yuhaihua200</div><div class="line">language: zh-CN</div><div class="line">timezone: Asia/shanghai</div><div class="line"></div><div class="line"># URL</div><div class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</div><div class="line">url: http://yoursite.com</div><div class="line">root: /</div><div class="line">permalink: :year/:month/:day/:title/</div><div class="line">permalink_defaults:</div><div class="line"></div><div class="line"># Directory</div><div class="line">source_dir: source</div><div class="line">public_dir: public</div><div class="line">tag_dir: tags</div><div class="line">archive_dir: archives</div><div class="line">category_dir: categories</div><div class="line">code_dir: downloads/code</div><div class="line">i18n_dir: :lang</div><div class="line">skip_render:</div><div class="line"></div><div class="line"># Writing</div><div class="line">new_post_name: :title.md # File name of new posts</div><div class="line">default_layout: post</div><div class="line">titlecase: false # Transform title into titlecase</div><div class="line">external_link: true # Open external links in new tab</div><div class="line">filename_case: 0</div><div class="line">render_drafts: false</div><div class="line">post_asset_folder: false</div><div class="line">relative_link: false</div><div class="line">future: true</div><div class="line">highlight:</div><div class="line">  enable: true</div><div class="line">  line_number: true</div><div class="line">  auto_detect: false</div><div class="line">  tab_replace:</div><div class="line"></div><div class="line"># Category &amp; Tag</div><div class="line">default_category: uncategorized</div><div class="line">category_map:</div><div class="line">tag_map:</div><div class="line"></div><div class="line"># Date / Time format</div><div class="line">## Hexo uses Moment.js to parse and display date</div><div class="line">## You can customize the date format as defined in</div><div class="line">## http://momentjs.com/docs/#/displaying/format/</div><div class="line">date_format: YYYY-MM-DD</div><div class="line">time_format: HH:mm:ss</div><div class="line"></div><div class="line"># Pagination</div><div class="line">## Set per_page to 0 to disable pagination</div><div class="line">per_page: 10</div><div class="line">pagination_dir: page</div><div class="line"></div><div class="line"># Extensions</div><div class="line">## Plugins: https://hexo.io/plugins/</div><div class="line">## Themes: https://hexo.io/themes/</div><div class="line">theme: spfk</div><div class="line"></div><div class="line"># Deployment</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: https://github.com/yuhaihua200/yuhaihua200.github.io.git</div></pre></td></tr></table></figure></p>
-<p>##局部页面逻辑<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── languages  #多语言</div><div class="line">|   ├── default.yml#默认语言</div><div class="line">|   └── zh-CN.yml  #中文语言</div><div class="line">├── layout #布局，根目录下的*.ejs文件是对主页，分页，存档等的控制</div><div class="line">|   ├── _partial   #局部的布局，此目录下的*.ejs是对头尾等局部的控制</div><div class="line">|   └── _widget#小挂件的布局，页面下方小挂件的控制</div><div class="line">├── source #源码</div><div class="line">|   ├── css#css源码 </div><div class="line">|   |   ├── _base  #*.styl基础css</div><div class="line">|   |   ├── _partial   #*.styl局部css</div><div class="line">|   |   ├── fonts  #字体</div><div class="line">|   |   ├── images #图片</div><div class="line">|   |   └── style.styl #*.styl引入需要的css源码</div><div class="line">|   ├── fancybox   #fancybox效果源码</div><div class="line">|   └── js #javascript源代码</div><div class="line">├── _config.yml#主题配置文件</div><div class="line">└── README.md  #用GitHub的都知道</div></pre></td></tr></table></figure></p>
-
+              <h1 id="hexo学习记录"><a href="#hexo学习记录" class="headerlink" title="hexo学习记录"></a>hexo学习记录</h1>
+          
       
     </div>
     
@@ -378,11 +240,15 @@
       
       
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/notes/">notes</a>
+    <a class="article-category-link" href="/notes/">notes</a>
     </div>
 
 
       
+      
+        <p class="article-more-link">
+          <a  href="/notes/hexo/#more">More >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

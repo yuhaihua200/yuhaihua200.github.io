@@ -3214,7 +3214,7 @@ color
   font-family: Menlo, Consolas, "Source Code Pro", Inconsolata, Monaco, monospace;
 }
 .article-entry blockquote {
-  background-color: #555;
+  background-color: #2f4f4f;
   padding: 10px 15px;
   word-break: break-word;
   margin: 10px 0px;
