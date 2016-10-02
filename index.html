@@ -231,78 +231,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="git总结"><a href="#git总结" class="headerlink" title="git总结"></a>git总结</h1><h2 id="git简介"><a href="#git简介" class="headerlink" title="git简介"></a>git简介</h2><ul>
-<li>git:分布式版本控制系统</li>
-</ul>
-<h2 id="Windows下git的安装与配置"><a href="#Windows下git的安装与配置" class="headerlink" title="Windows下git的安装与配置"></a>Windows下git的安装与配置</h2><h3 id="安装完成后的设置"><a href="#安装完成后的设置" class="headerlink" title="安装完成后的设置"></a>安装完成后的设置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name &quot;Your Name&quot;</div><div class="line">$ git config --global user.email &quot;email@example.com&quot;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>注意git config命令的–global参数，用了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和Email地址。</p>
-</blockquote>
-<h2 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h2><blockquote>
-<p>版本库又名仓库，英⽂名repository，你可以简单理解成一个目录，这个目录里面的所有文件都可以被Git管理起来，每个文件的修改、删除，Git都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻可以“还原”。</p>
-</blockquote>
-<h3 id="创建空目录"><a href="#创建空目录" class="headerlink" title="创建空目录"></a>创建空目录</h3><blockquote>
-<p>Windows系统，为了避免遇到各种莫名其妙的问题，请确保目录名（包括⽗目录）不包含中⽂。</p>
-</blockquote>
-<h3 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Oliver@Oliver-PC MINGW64 /e/tsgit</div><div class="line">$ git init</div><div class="line">Initialized empty Git repository in E:/tsgit/.git/</div><div class="line"></div><div class="line">Oliver@Oliver-PC MINGW64 /e/tsgit (master)</div><div class="line">$</div></pre></td></tr></table></figure>
-<h3 id="把文件添加到版本库"><a href="#把文件添加到版本库" class="headerlink" title="把文件添加到版本库"></a>把文件添加到版本库</h3><blockquote>
-<p>所有的版本控制系统,其实只能追踪<em>文本</em>文件的改动  </p>
-<blockquote>
-<p>二进制文件，虽然也能由版本 控制系统管理，但没法跟踪⽂件的变化，只能把⼆进制文件每次改动串起来，也就是只知道图片从100KB改成了120KB，但到底改了啥，版本控制系统不知道，也没法知道。</p>
-<blockquote>
-<p>不幸的是，Microsoft的Word格式是二进制格式，因此，版本控制系统是没法跟踪Word文件的改动的，前面我们举的例子只是为了演示，如果要真正使用版本控制系统，就要以<em>纯文本方式</em>编写文件。</p>
-</blockquote>
-</blockquote>
-<p>强烈建议使用标准的UTF-8编码</p>
-<blockquote>
-<p>不要使用Windows记事本!!</p>
-</blockquote>
-</blockquote>
-<p>建立文件,编写内容,保存为gitts.txt,然后:</p>
-<ul>
-<li>git add gitts.txt</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Oliver@Oliver-PC MINGW64 /e/tsgit (master)</div><div class="line">$ git add gitts</div><div class="line">fatal: pathspec &apos;gitts&apos; did not match any files</div><div class="line"></div><div class="line">Oliver@Oliver-PC MINGW64 /e/tsgit (master)</div><div class="line">$ git add gitts.txt</div></pre></td></tr></table></figure>
-<ul>
-<li>把文件提交到仓库</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Oliver@Oliver-PC MINGW64 /e/tsgit (master)</div><div class="line">$ git commit -m &quot;my firsit git file&quot;</div><div class="line">[master (root-commit) a3e2acb] my firsit git file</div><div class="line"> 1 files changed, 1 insertions(+)</div><div class="line"> create mode 100644 gitts.txt</div></pre></td></tr></table></figure>
-<blockquote>
-<p>-m 后面输入的是本次提交的说明，可以输⼊任意内容，当然最好是有意义的，这样你就能从历史记录里方便地找到改动记录。</p>
-<p>1 files changed, 1 insertions(+) 一个文件改动,改动一行</p>
-</blockquote>
-<h2 id="时光机穿梭"><a href="#时光机穿梭" class="headerlink" title="时光机穿梭"></a>时光机穿梭</h2><ul>
-<li>运行git status 查看修改前结果</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Oliver@Oliver-PC MINGW64 /e/tsgit (master)</div><div class="line">$ git status</div><div class="line">On branch master</div><div class="line">nothing to commit, working tree clean</div></pre></td></tr></table></figure>
-<ul>
-<li>修改文件后,运行git status 查看修改结果</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Oliver@Oliver-PC MINGW64 /e/tsgit (master)</div><div class="line">$ git status</div><div class="line">On branch master</div><div class="line">Changes not staged for commit:</div><div class="line">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</div><div class="line">  (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)</div><div class="line"></div><div class="line">        modified:   gitts.txt</div><div class="line"></div><div class="line">no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</div></pre></td></tr></table></figure>
-<p>git status命令可以让我们时刻掌握仓库当前的状态，上面的命令告诉我们，readme.txt被修改过了，但还没有准备提交的修改。</p>
-<ul>
-<li>使用git diff查看修改内容<ul>
-<li>减号代表丢失</li>
-<li>加号代表增加</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Oliver@Oliver-PC MINGW64 /e/tsgit (master)</div><div class="line">$ git diff</div><div class="line">diff --git a/gitts.txt b/gitts.txt</div><div class="line">index 9a765d0..b86ede4 100644</div><div class="line">--- a/gitts.txt</div><div class="line">+++ b/gitts.txt</div><div class="line">@@ -1,2 +1,2 @@</div><div class="line">-This is the first git edit!!</div><div class="line">+This is the first git edit!!!!</div><div class="line"> I am supermanaaa!!</div><div class="line">\ No newline at end of file</div></pre></td></tr></table></figure>
-<p>总结:</p>
-<ul>
-<li>每次都要git add</li>
-<li>每次git commit都要加-m解释</li>
-<li>git status查看状态</li>
-<li>git diff 查看修改内容</li>
-</ul>
-<h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><ul>
-<li>使用git log查看修改日志</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">Oliver@Oliver-PC MINGW64 /e/tsgit (master)</div><div class="line">$ git log</div><div class="line">commit aa2b57d167144d753050e150e00eeea5430090db</div><div class="line">Author: yuhaihua200 &lt;yuhaihua200@163.com&gt;</div><div class="line">Date:   Sun Oct 2 09:03:02 2016 +0800</div><div class="line"></div><div class="line">    b</div><div class="line"></div><div class="line">commit a17c2cc88c173f1155e92d9b425734f21fe0d055</div><div class="line">Author: yuhaihua200 &lt;yuhaihua200@163.com&gt;</div><div class="line">Date:   Sun Oct 2 09:00:41 2016 +0800</div><div class="line"></div><div class="line">    a</div><div class="line"></div><div class="line">commit 8ed3921b21272a36f6134a4f50f8ca167723a729</div><div class="line">Author: yuhaihua200 &lt;yuhaihua200@163.com&gt;</div><div class="line">Date:   Sat Oct 1 22:22:22 2016 +0800</div><div class="line"></div><div class="line">    abc</div><div class="line"></div><div class="line">commit 8aae985b418c1e5a0d6879e6406dd6fe7a08a247</div><div class="line">Author: yuhaihua200 &lt;yuhaihua200@163.com&gt;</div><div class="line">Date:   Sat Oct 1 22:21:26 2016 +0800</div><div class="line"></div><div class="line">    abc</div><div class="line">:</div></pre></td></tr></table></figure>
-<ul>
-<li>没做好解释就像上面一样改了啥东西看不懂</li>
-</ul>
-
+              <h1 id="git总结"><a href="#git总结" class="headerlink" title="git总结"></a>git总结</h1>
+          
       
     </div>
     
@@ -315,6 +245,10 @@
 
 
       
+      
+        <p class="article-more-link">
+          <a  href="/notes/git/#more">More >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
