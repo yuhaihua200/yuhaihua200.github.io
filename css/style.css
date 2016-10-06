@@ -3366,6 +3366,7 @@ color
 }
 .article-entry li:hover {
   background-color: #2e2e2e;
+  color: #fff;
 }
 .article-entry .highlight::before {
   content: attr(data-lang) " code";
