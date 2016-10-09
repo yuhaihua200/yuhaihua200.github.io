@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://yuhaihua200.github.io/notes/git/index.html">
 <meta property="og:site_name" content="YHH~Blog">
 <meta property="og:description" content="git总结">
-<meta property="og:updated_time" content="2016-10-02T09:17:02.231Z">
+<meta property="og:updated_time" content="2016-10-08T15:27:49.746Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git">
 <meta name="twitter:description" content="git总结">
@@ -364,6 +364,155 @@
 <li>第二次修改后再次加入暂存区,一起commit</li>
 <li>commit后再add到暂存区,再次commit</li>
 </ul>
+<h3 id="丢弃修改"><a href="#丢弃修改" class="headerlink" title="丢弃修改"></a>丢弃修改</h3><p>情景:</p>
+<ol>
+<li>修改后没有放入暂存区</li>
+<li>修改后放入了暂存区(git add …)</li>
+</ol>
+<p>没有放入暂存区:</p>
+<blockquote>
+<p>$ git checkout – gitts.txt</p>
+</blockquote>
+<ul>
+<li>git checkout –中的”–”很重要,没有”–”,就变成了创建新的分支</li>
+</ul>
+<hr>
+<p>放入了暂存区:</p>
+<ul>
+<li>从暂存区回退到工作区:<ul>
+<li>git reset HEAD gitts.txt</li>
+</ul>
+</li>
+<li>从工作区回退文件修改内容:<ul>
+<li>git checkout – gitts.txt</li>
+</ul>
+</li>
+</ul>
+<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><ul>
+<li><p>提交到分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Oliver@Oliver-PC MINGW64 /e/tsgit (master)</div><div class="line">$ git commit -m &quot;test rm gitts.txt&quot;</div><div class="line">On branch master</div><div class="line">nothing to commit, working tree clean</div></pre></td></tr></table></figure>
+</li>
+<li><p>删除文件(资源管理器删除或者rm 文件名)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rm gitts.txt</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看git状态</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ git status</div><div class="line">On branch master</div><div class="line">Changes not staged for commit:</div><div class="line">  (use &quot;git add/rm &lt;file&gt;...&quot; to update what will be committed)</div><div class="line">  (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)</div><div class="line"></div><div class="line">        deleted:    gitts.txt</div><div class="line"></div><div class="line">no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</div></pre></td></tr></table></figure>
+<p>现在有两个选择:</p>
+<ul>
+<li>从版本库中删除并提交<blockquote>
+<p>$ git rm 文件名</p>
+</blockquote>
+</li>
+<li>还原文件 <blockquote>
+<p>$ git checkout – 文件名</p>
+</blockquote>
+</li>
+</ul>
+<p>命令git rm赢于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容。</p>
+<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><h3 id="创建SSH-Key"><a href="#创建SSH-Key" class="headerlink" title="创建SSH Key"></a>创建SSH Key</h3><ul>
+<li><p>查看用户文件夹是否存在.ssh目录,如果没有可以创建</p>
+<blockquote>
+<p>$ ssh-keygen -t rsa -C “youremail@example.com”</p>
+</blockquote>
+</li>
+<li><p>创建后有两个文件id_rsa和id_rsa.pub</p>
+<ul>
+<li>id_rsa是私钥,不能告诉任何人</li>
+<li>id_rsa.pub是公钥,可以告诉任何人</li>
+</ul>
+</li>
+<li><p>打开github,在设置中添加你得到的id_rsa.pub内容</p>
+</li>
+</ul>
+<h3 id="添加远程库"><a href="#添加远程库" class="headerlink" title="添加远程库"></a>添加远程库</h3><ul>
+<li>创建远程仓库</li>
+</ul>
+<blockquote>
+<p>…or create a new repository on the command line</p>
+<blockquote>
+<p>echo “# test” &gt;&gt; README.md<br>git init<br>git add README.md<br>git commit -m “first commit”<br>git remote add origin git@github.com:yuhaihua200/test.git<br>git push -u origin master</p>
+</blockquote>
+<p>…or push an existing repository from the command line</p>
+<blockquote>
+<p>git remote add origin git@github.com:yuhaihua200/test.git<br>git push -u origin master</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>创建后有两个提示:<ul>
+<li>创建一个新的库并推送到github</li>
+<li>推送一个存在的库到github</li>
+</ul>
+</li>
+<li>第一次推送git push -u origin master要加参数u<ul>
+<li>参数u是把本地master分支与远程master分支关联</li>
+<li>第二次推送就不再需要加参数u</li>
+</ul>
+</li>
+<li>推送实际上是把本地master分支推送到github</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">Oliver@Oliver-PC MINGW64 /e/tsgit (master)</div><div class="line">$ git checkout -- gitts.txt</div><div class="line"></div><div class="line">Oliver@Oliver-PC MINGW64 /e/tsgit (master)</div><div class="line">$ git remote add origin git@github.com:yuhaihua200/test.git</div><div class="line"></div><div class="line">Oliver@Oliver-PC MINGW64 /e/tsgit (master)</div><div class="line">$ git push -u origin master</div><div class="line">Counting objects: 20, done.</div><div class="line">Delta compression using up to 4 threads.</div><div class="line">Compressing objects: 100% (11/11), done.</div><div class="line">Writing objects: 100% (20/20), 1.56 KiB | 0 bytes/s, done.</div><div class="line">Total 20 (delta 0), reused 0 (delta 0)</div><div class="line">To github.com:yuhaihua200/test.git</div><div class="line"> * [new branch]      master -&gt; master</div><div class="line">Branch master set up to track remote branch master from origin.</div></pre></td></tr></table></figure>
+<ul>
+<li>远程库的名字叫origin,也可以更改</li>
+<li>第二次及以后的推送<blockquote>
+<p>$ git push origin master</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="克隆远程库"><a href="#克隆远程库" class="headerlink" title="克隆远程库"></a>克隆远程库</h3><blockquote>
+<p>git clone git@github.com:your_name/responsity_name</p>
+</blockquote>
+<h3 id="可以使用https协议"><a href="#可以使用https协议" class="headerlink" title="可以使用https协议"></a>可以使用https协议</h3><p>你也许还注意到，GitHub给出的地址不止一个，还可以用<a href="https://github.com/michaelliao/gitskills.git" target="_blank" rel="external">https://github.com/michaelliao/gitskills.git</a><br>这样的地址。实际上，Git⽀持多种协议，默认的git://使用ssh，但也可以使用https等其他协议。<br>使⽤https除了速度慢以外，还有个最⼤的⿇烦是每次推送都必须输⼊⼝令，但是在某些只<br>开放http端⼝的公司内部就⽆法使⽤ssh协议⽽只能⽤https。</p>
+<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><ul>
+<li>一条分支可以形成一条时间线</li>
+<li>master指向提交</li>
+<li>HEAD指向当前分支</li>
+<li><p>创建并切换到dev分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git checkout -b dev</div><div class="line">Switched to a new branch &apos;dev&apos;</div></pre></td></tr></table></figure>
+</li>
+<li><p>git checkout -b表示创建和切换,等于下面两条命令</p>
+<ul>
+<li>$ git branch dev</li>
+<li>$ git checkout dev</li>
+</ul>
+</li>
+<li><p>查看当前分支</p>
+<blockquote>
+<p>$ git branch</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Oliver@Oliver-PC MINGW64 /e/tsgit (master)</div><div class="line">$ git branch</div><div class="line">* master</div><div class="line"></div><div class="line">Oliver@Oliver-PC MINGW64 /e/tsgit (master)</div><div class="line">$ git branch dev</div><div class="line"></div><div class="line">Oliver@Oliver-PC MINGW64 /e/tsgit (master)</div><div class="line">$ git checkout dev</div><div class="line">Switched to branch &apos;dev&apos;</div><div class="line"></div><div class="line">Oliver@Oliver-PC MINGW64 /e/tsgit (dev)</div><div class="line">$ git branch</div><div class="line">* dev</div><div class="line">  master</div></pre></td></tr></table></figure>
+<ul>
+<li>带*号的表示在当前分支</li>
+<li>修改dev分支的内容,然后切换回master分支,发现在dev分支修改的内容不见了</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Oliver@Oliver-PC MINGW64 /e/tsgit (dev)</div><div class="line">$ git add gitts.txt</div><div class="line"></div><div class="line">Oliver@Oliver-PC MINGW64 /e/tsgit (dev)</div><div class="line">$ git commit -m &quot;create a branch&quot;</div><div class="line">[dev 99e745e] create a branch</div><div class="line"> 1 file changed, 2 insertions(+), 1 deletion(-)</div><div class="line"></div><div class="line">Oliver@Oliver-PC MINGW64 /e/tsgit (dev)</div><div class="line">$ git checkout master</div><div class="line">Switched to branch &apos;master&apos;</div><div class="line">Your branch is up-to-date with &apos;origin/master&apos;.</div></pre></td></tr></table></figure>
+<ul>
+<li><p>合并分支</p>
+<blockquote>
+<p>$ git merge dev</p>
+</blockquote>
+</li>
+<li><p>删除分支</p>
+<blockquote>
+<p>$ git branch -d dev</p>
+</blockquote>
+</li>
+</ul>
+<p>总结:</p>
+<ul>
+<li>Git鼓励大量使用分支：<ul>
+<li>查看分支：git branch</li>
+<li>创建分支：git branch name</li>
+<li>切换分支：git checkout name</li>
+<li>创建+切换分支： git checkout -b name</li>
+<li>合并某分支到当前分支： git merge name</li>
+<li>删除分支： git branch -d name</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -375,7 +524,7 @@
         <p><span>本文标题:</span><a href="/notes/git/">git</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 弌弌幺幺 的个人博客">弌弌幺幺</a></p>
         <p><span>发布时间:</span>2016年10月01日 - 20时44分</p>
-        <p><span>最后更新:</span>2016年10月02日 - 17时17分</p>
+        <p><span>最后更新:</span>2016年10月08日 - 23时27分</p>
         <!--
         <p>
             <span>原始链接:</span><a class="post-url" href="/notes/git/" title="git">https://yuhaihua200.github.io/notes/git/</a>
@@ -393,6 +542,15 @@
 
 <nav id="article-nav">
   
+    <a href="/notes/CSS常用选择器解析/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          CSS常用选择器解析
+        
+      </div>
+    </a>
+  
   
     <a href="/notes/hexo/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">hexo</div>
@@ -406,7 +564,7 @@
 
     <div id="toc" class="toc-article" hidden>
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#git总结"><span class="toc-number">1.</span> <span class="toc-text">git总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#git简介"><span class="toc-number">1.1.</span> <span class="toc-text">git简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Windows下git的安装与配置"><span class="toc-number">1.2.</span> <span class="toc-text">Windows下git的安装与配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装完成后的设置"><span class="toc-number">1.2.1.</span> <span class="toc-text">安装完成后的设置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建版本库"><span class="toc-number">1.3.</span> <span class="toc-text">创建版本库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建空目录"><span class="toc-number">1.3.1.</span> <span class="toc-text">创建空目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-init"><span class="toc-number">1.3.2.</span> <span class="toc-text">git init</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#把文件添加到版本库"><span class="toc-number">1.3.3.</span> <span class="toc-text">把文件添加到版本库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#时光机穿梭"><span class="toc-number">1.4.</span> <span class="toc-text">时光机穿梭</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#版本回退"><span class="toc-number">1.5.</span> <span class="toc-text">版本回退</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用git-reflog查看历史操作"><span class="toc-number">1.5.1.</span> <span class="toc-text">使用git reflog查看历史操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#工作区和暂存区"><span class="toc-number">1.6.</span> <span class="toc-text">工作区和暂存区</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#工作区"><span class="toc-number">1.6.1.</span> <span class="toc-text">工作区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#版本库"><span class="toc-number">1.6.2.</span> <span class="toc-text">版本库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#执行步骤"><span class="toc-number">1.6.3.</span> <span class="toc-text">执行步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#管理修改"><span class="toc-number">1.6.4.</span> <span class="toc-text">管理修改</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#git总结"><span class="toc-number">1.</span> <span class="toc-text">git总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#git简介"><span class="toc-number">1.1.</span> <span class="toc-text">git简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Windows下git的安装与配置"><span class="toc-number">1.2.</span> <span class="toc-text">Windows下git的安装与配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装完成后的设置"><span class="toc-number">1.2.1.</span> <span class="toc-text">安装完成后的设置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建版本库"><span class="toc-number">1.3.</span> <span class="toc-text">创建版本库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建空目录"><span class="toc-number">1.3.1.</span> <span class="toc-text">创建空目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-init"><span class="toc-number">1.3.2.</span> <span class="toc-text">git init</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#把文件添加到版本库"><span class="toc-number">1.3.3.</span> <span class="toc-text">把文件添加到版本库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#时光机穿梭"><span class="toc-number">1.4.</span> <span class="toc-text">时光机穿梭</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#版本回退"><span class="toc-number">1.5.</span> <span class="toc-text">版本回退</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用git-reflog查看历史操作"><span class="toc-number">1.5.1.</span> <span class="toc-text">使用git reflog查看历史操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#工作区和暂存区"><span class="toc-number">1.6.</span> <span class="toc-text">工作区和暂存区</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#工作区"><span class="toc-number">1.6.1.</span> <span class="toc-text">工作区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#版本库"><span class="toc-number">1.6.2.</span> <span class="toc-text">版本库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#执行步骤"><span class="toc-number">1.6.3.</span> <span class="toc-text">执行步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#管理修改"><span class="toc-number">1.6.4.</span> <span class="toc-text">管理修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#丢弃修改"><span class="toc-number">1.6.5.</span> <span class="toc-text">丢弃修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除文件"><span class="toc-number">1.6.6.</span> <span class="toc-text">删除文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程仓库"><span class="toc-number">1.7.</span> <span class="toc-text">远程仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建SSH-Key"><span class="toc-number">1.7.1.</span> <span class="toc-text">创建SSH Key</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加远程库"><span class="toc-number">1.7.2.</span> <span class="toc-text">添加远程库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#克隆远程库"><span class="toc-number">1.7.3.</span> <span class="toc-text">克隆远程库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可以使用https协议"><span class="toc-number">1.7.4.</span> <span class="toc-text">可以使用https协议</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分支管理"><span class="toc-number">1.8.</span> <span class="toc-text">分支管理</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="显示目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -446,7 +604,9 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/notes/CSS常用选择器解析/" title="上一篇: CSS常用选择器解析">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
@@ -455,7 +615,7 @@
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/notes/git/">git</a></li><li class="post-list-item"><a class="post-list-link" href="/notes/hexo/">hexo</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/notes/CSS常用选择器解析/">CSS常用选择器解析</a></li><li class="post-list-item"><a class="post-list-link" href="/notes/git/">git</a></li><li class="post-list-item"><a class="post-list-link" href="/notes/hexo/">hexo</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
