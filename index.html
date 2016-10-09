@@ -231,57 +231,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>#最常用CSS选择器解析</p>
-<h2 id=""><a href="#" class="headerlink" title="*"></a>*</h2><p>对页面的每个元素都起作用,通常用来设置所有元素的margin和padding为0</p>
-<blockquote>
-<ul>
-<li>{      margin: 0;      padding: 0;     }</li>
-</ul>
-</blockquote>
-<p>也可以在子选择器中使用</p>
-<blockquote>
-<p>#container * { border: 1px solid black; }</p>
-</blockquote>
-<p><strong>除非必要，我不建议在页面中过的的使用星状选择符，因为他的作用域太大，相当耗浏览器资源.</strong></p>
-<h2 id="x"><a href="#x" class="headerlink" title="#x"></a>#x</h2><p>id选择器,具有高优先级(优先级基数为100，远高于class的10),缺点也很明显优先级过高，重用性差</p>
-<h2 id="x-1"><a href="#x-1" class="headerlink" title=".x"></a>.x</h2><p>类选择器</p>
-<h2 id="x-y"><a href="#x-y" class="headerlink" title="x y"></a>x y</h2><p>后代选择器.选取x元素下的子孙元素y.<br>注意:<strong>它匹配的是所有的后代子孙元素y</strong></p>
-<h2 id="x-2"><a href="#x-2" class="headerlink" title="x"></a>x</h2><p>标签选择器.优先级仅比*高</p>
-<h2 id="x-visited"><a href="#x-visited" class="headerlink" title="x:visited"></a>x:visited</h2><p>伪类选择器.设置超链接a在其链接地址已被访问过时的样式</p>
-<h2 id="x-link"><a href="#x-link" class="headerlink" title="x:link"></a>x:link</h2><p>伪类选择器.设置超链接a在未被访问前的样式</p>
-<h2 id="x-hover"><a href="#x-hover" class="headerlink" title="x:hover"></a>x:hover</h2><p>伪类选择器.设置元素在其鼠标悬停时的样式</p>
-<h2 id="x-active"><a href="#x-active" class="headerlink" title="x:active"></a>x:active</h2><p>伪类选择器.设置元素在被用户激活（在鼠标点击与释放之间发生的事件）时的样式。</p>
-<hr>
-<p>注意，a:hover 必须位于 a:link 和 a:visited 之后，a:active 必须位于 a:hover 之后<br>可靠的顺序是：l(link)ov(visited)e h(hover)a(active)te, 即用喜欢(love)和讨厌(hate)两个词来概括</p>
-<hr>
-<h2 id="x-y-1"><a href="#x-y-1" class="headerlink" title="x+y"></a>x+y</h2><p>相邻选择器.匹配x后面的第一个y.(只匹配第一个元素)</p>
-<h2 id="x-gt-y"><a href="#x-gt-y" class="headerlink" title="x&gt;y"></a>x&gt;y</h2><p>子选择器.与后代选择器X Y不同的是，子选择器只对X下的直接子级Y起作用(不是子孙,是子)<br>IE6不支持</p>
-<h2 id="x-y-2"><a href="#x-y-2" class="headerlink" title="x~y"></a>x~y</h2><p>相邻选择器.与前面提到的X+Y不同的是，X~Y匹配与X相同级别的<strong>所有</strong>Y元素，而X+Y只匹配第一个</p>
-<h2 id="x-title"><a href="#x-title" class="headerlink" title="x[title]"></a>x[title]</h2><blockquote>
-<p>a[title] {color: green;}</p>
-</blockquote>
-<p>属性选择器。比如上述代码匹配的是带有title属性的链接元素。</p>
-<h2 id="x-title-”foo”"><a href="#x-title-”foo”" class="headerlink" title="x[title=”foo”]"></a>x[title=”foo”]</h2><blockquote>
-<p>a[href=”xxx”] {color: #1f6053;}</p>
-</blockquote>
-<p>属性选择器.上面的代码匹配所有拥有href属性，且href为xxx的所有链接。</p>
-<h2 id="x-title-”abc-net”"><a href="#x-title-”abc-net”" class="headerlink" title="x[title*=”abc.net”]"></a>x[title*=”abc.net”]</h2><p>属性选择器.选择x元素中的title属性且值包含abc.net的元素</p>
-<h2 id="x-href-”http”"><a href="#x-href-”http”" class="headerlink" title="x[href^=”http”]"></a>x[href^=”http”]</h2><p>属性选择器.选择属性为herf且属性值为http开头的x元素</p>
-<h2 id="x-foo-”bar”"><a href="#x-foo-”bar”" class="headerlink" title="x[foo~=”bar”]"></a>x[foo~=”bar”]</h2><p>属性选择器.选择属性为foo且属性值包含bar的x元素,该选择器应用在属性值有空格的地方<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">div[class~=&quot;a&quot;] &#123;</div><div class="line">	border: 2px solid #000;</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div><div class="line"></div><div class="line">&lt;div class=&quot;a&quot;&gt;1&lt;/div&gt;</div><div class="line">&lt;div class=&quot;b&quot;&gt;2&lt;/div&gt;</div><div class="line">&lt;div class=&quot;a b&quot;&gt;3&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>此例，将会命中1, 3两个div，因为匹配到了class属性，且属性值中有一个值为a</p>
-</blockquote>
-<h2 id="x-checked"><a href="#x-checked" class="headerlink" title="x:checked"></a>x:checked</h2><p>checked伪类用来匹配处于选定状态的界面元素，如radio、checkbox</p>
-<h2 id="x-after"><a href="#x-after" class="headerlink" title="x:after"></a>x:after</h2><p>清除浮动:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">.clearfix:after &#123;</div><div class="line">content: &quot;&quot;;</div><div class="line">display: block;</div><div class="line">clear: both;</div><div class="line">visibility: hidden;</div><div class="line">font-size: 0;</div><div class="line">height: 0;</div><div class="line">&#125;</div><div class="line">.clearfix &#123;</div><div class="line">*display: inline-block;</div><div class="line">_height: 1%;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="x-nth-child-n"><a href="#x-nth-child-n" class="headerlink" title="x:nth-child(n)"></a>x:nth-child(n)</h2><p>伪类.选择第n个元素(从1开始算起)的样式</p>
-<h2 id="x-nth-last-child-n"><a href="#x-nth-last-child-n" class="headerlink" title="x:nth-last-child(n)"></a>x:nth-last-child(n)</h2><p>伪类.与X:nth-child(n)功能类似，不同的是它从一个序列的最后一个元素开始算起</p>
-<h2 id="x-nth-of-type-n"><a href="#x-nth-of-type-n" class="headerlink" title="x:nth-of-type(n)"></a>x:nth-of-type(n)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ul:nth-of-type(3) &#123;</div><div class="line">border: 1px solid black;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>与X:nth-child(n)功能类似，不同的是它匹配的不是某个序列元素，而是元素类型。例如上面的代码设置页面中出现的第三个无序列表ul的边框。</p>
-<h2 id="x-nth-last-of-type-n"><a href="#x-nth-last-of-type-n" class="headerlink" title="x:nth-last-of-type(n)"></a>x:nth-last-of-type(n)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ul:nth-last-of-type(3) &#123; border: 1px solid black; &#125;</div></pre></td></tr></table></figure>
-<p>与X:nth-of-type(n)功能类似，不同的是它从元素最后一次出现开始算起。上面例子中设定倒数第三个无序列表的边框</p>
-<h2 id="x-first-child"><a href="#x-first-child" class="headerlink" title="x:first-child"></a>x:first-child</h2><p>匹配父元素的第一个子元素x</p>
-<h2 id="x-last-child"><a href="#x-last-child" class="headerlink" title="x:last-child"></a>x:last-child</h2><p>匹配父元素的最后一个子元素x</p>
-
+              <p>#最常用CSS选择器解析<br>
+          
       
     </div>
     
@@ -298,6 +249,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a  href="/notes/CSS常用选择器解析/#more">More >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
